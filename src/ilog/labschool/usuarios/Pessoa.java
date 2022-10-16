@@ -5,6 +5,14 @@ import java.time.format.DateTimeFormatter;
 
 public class Pessoa {
 
+    public Pessoa(String nome, Long telefone, LocalDate dataNascimento, Long cpf, int codigo) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+        this.setCodigo(codigo);
+    }
+
     // Atributos
     private String nome;
     private Long telefone;
@@ -12,11 +20,6 @@ public class Pessoa {
     private Long cpf;
     private int codigo;
     DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-    // Métodos
-    public void cadastrar(){
-
-    }
 
     // Métodos Especiais
     public String getNome() {
@@ -57,16 +60,5 @@ public class Pessoa {
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
-    }
-
-    @Override
-    public String toString() {
-        return "[" +
-                "Código: " + codigo +
-                ", Nome: '" + nome + '\'' +
-                ", Telefone: " + telefone +
-                ", Data de Nascimento: " + dataNascimento +
-                ", CPF: " + cpf +
-                ']';
     }
 }

@@ -1,20 +1,25 @@
 package ilog.labschool.usuarios;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Aluno extends Pessoa{
-    // Atributos
+
+
+
     private String situacao = "Ativo"; // Ativo | Irregular | Atendimento Pedagógico | Inativo
     private double nota;
     private int atendAluno = 0;
 
-    // Métodos
-    public void atualizarMatricula(){
+    public Aluno(String nome, Long telefone, LocalDate dataNascimento, Long cpf, double nota, int codigo) {
+        super(nome, telefone, dataNascimento, cpf, codigo);
+        this.setNota(nota);
 
     }
-    public void novoAtendimento(){
 
-    }
-
-    // Métodos Especiais
     public String getSituacao() {
         return situacao;
     }
@@ -37,5 +42,19 @@ public class Aluno extends Pessoa{
 
     public void setAtendAluno(int atendAluno) {
         this.atendAluno = atendAluno;
+    }
+
+    @Override
+    public String toString() {
+        return "[" +
+                "Código: " + this.getCodigo() +
+                ", Nome: '" + this.getNome() + '\'' +
+                ", Telefone: " + this.getTelefone() +
+                ", Data de Nascimento: " + getDataNascimento() +
+                ", CPF: " + getCpf() +
+                ", Nota: " + this.nota +
+                ", Situação: " + this.situacao +
+                ", Atendimentos: " + this.atendAluno +
+                ']';
     }
 }
