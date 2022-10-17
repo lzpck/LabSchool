@@ -57,4 +57,21 @@ public class Aluno extends Pessoa{
                 ", Atendimentos: " + this.atendAluno +
                 ']';
     }
+
+    public String listaAlunos(){
+        return "[" +
+                "Código: " + this.getCodigo() +
+                ", Nome: '" + this.getNome() + '\'' +
+                ", Telefone: " + this.getTelefone() +
+                ", CPF: " + getCpf() +
+                ']';
+    }
+
+    public String listaAtendimentos(){
+        return "[" +
+                "Código: " + this.getCodigo() +
+                ", Nome: '" + this.getNome() + '\'' +
+                ", Nro de Atendimentos: " + this.getAtendAluno() +
+                ']';
+    }
 }

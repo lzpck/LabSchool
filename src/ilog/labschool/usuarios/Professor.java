@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Professor extends Pessoa{
-    // Atributos
     private String formacao; // Graduação Incompleta | Graduação Completa | Mestrado | Doutorado
     private String experiencia; // Front-end | Back-end | Fullstack
     private String estado = "Ativo";
@@ -16,10 +15,6 @@ public class Professor extends Pessoa{
         this.setExperiencia(experiencia);
     }
 
-
-    // Métodos
-
-    // Métodos Especiais
     public String getFormacao() {
         return formacao;
     }
@@ -29,7 +24,7 @@ public class Professor extends Pessoa{
     }
 
     public String getExperiencia() {
-        return experiencia;
+        return this.experiencia;
     }
 
     public void setExperiencia(String experiencia) {
@@ -54,6 +49,18 @@ public class Professor extends Pessoa{
                 ", CPF: " + getCpf() +
                 ", Formação: " + this.formacao +
                 ", Experiência: " + this.experiencia +
+                ", Estado: " + this.estado +
+                ']';
+    }
+
+    public String listaProfessor(){
+        return "[" +
+                "Código: " + this.getCodigo() +
+                ", Nome: '" + this.getNome() + '\'' +
+                ", CPF: " + getCpf() +
+                ", Formação: " + this.formacao +
+                ", Experiência: " + this.experiencia +
+                ", Estado: " + this.estado +
                 ']';
     }
 }

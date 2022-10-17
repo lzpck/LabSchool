@@ -2,10 +2,8 @@ package ilog.labschool.usuarios;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.LongSummaryStatistics;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Lista {
     public int codigo = 1;
@@ -43,9 +41,11 @@ public class Lista {
         LocalDate nascimento = LocalDate.parse(dataNascimento, formatarData);
         System.out.print("CPF [apenas números]: ");
         String cpf = entrada.nextLine();
-        System.out.print("Formação: ");
+        System.out.println("Entre Graduação incompleta, Graduação completa, Mestrado e Doutorado");
+        System.out.print("Qual a sua formação: ");
         String formacao = entrada.nextLine();
-        System.out.print("Experiência: ");
+        System.out.println("Entre Front-end, Back-end e Full Stack");
+        System.out.print("Em qual você possui experiência: ");
         String experiencia = entrada.nextLine();
         Professor.add(new Professor(nome, Long.valueOf(telefone), nascimento, Long.valueOf(cpf), this.codigo++, formacao, experiencia));
     }
@@ -72,7 +72,6 @@ public class Lista {
                 return;
             }
         }
-
         System.out.print("Código não encontrado");
     }
 
@@ -107,6 +106,84 @@ public class Lista {
                 atendimento--;
                 item.setAtendAluno(atendimento);
                 System.out.print("Pedagogo não encontrado");
+            }
+        }
+    }
+    public void listaRelatorioAlunos(String situacao){
+        for (Aluno item: Aluno){
+            if (situacao == "Todos"){
+                System.out.println("[ Código: " + item.getCodigo() + " | Nome: " + item.getNome() +
+                        " | Nota: " + item.getNota() + " | Total de Atendimentos: " + item.getAtendAluno() + " ]");
+            } else if (item.getSituacao() == situacao){
+                System.out.println("[ Código: " + item.getCodigo() + " | Nome: " + item.getNome() +
+                        " | Nota: " + item.getNota() + " | Total de Atendimentos: " + item.getAtendAluno() + " ]");
+            }
+        }
+    }
+
+    public void listaRelatorioProfessores(String experiencia){
+//        System.out.println(experiencia);
+        for (Professor item: Professor){
+            if (experiencia == "Todos"){
+                System.out.println("[ Código: " + item.getCodigo() + " | Nome: " + item.getNome() +
+                        " | Formação: " + item.getFormacao() + " | Experiência: " + item.getExperiencia() + " | Estado: " + item.getEstado() + " ]");
+            } else if (item.getExperiencia() == experiencia){
+                System.out.println("[ Código: " + item.getCodigo() + " | Nome: " + item.getNome() +
+                        " | Formação: " + item.getFormacao() + " | Experiência: " + item.getExperiencia() + " | Estado: " + item.getEstado() + " ]");
+            }
+        }
+    }
+
+    public void listarRelatorioPessoas(String tipo){
+        if (tipo == "Todos"){
+            for (Aluno item: Aluno){
+                System.out.println("[ Código: " + item.getCodigo() + " | Nome: " + item.getNome() +
+                        " | CPF: " + item.getCpf() + " ]");
+            }
+            for (Professor item: Professor){
+                System.out.println("[ Código: " + item.getCodigo() + " | Nome: " + item.getNome() +
+                        " | CPF: " + item.getCpf() + " ]");
+            }
+            for (Pedagogo item: Pedagogo){
+                System.out.println("[ Código: " + item.getCodigo() + " | Nome: " + item.getNome() +
+                        " | CPF: " + item.getCpf() + " ]");
+            }
+        } else {
+            switch (tipo) {
+                case "Aluno":
+                    for (Aluno item : Aluno) {
+                        System.out.println("[ Código: " + item.getCodigo() + " | Nome: " + item.getNome() +
+                                " | CPF: " + item.getCpf() + " ]");
+                    }
+                    break;
+                case "Professor":
+                    for (Professor item : Professor) {
+                        System.out.println("[ Código: " + item.getCodigo() + " | Nome: " + item.getNome() +
+                                " | CPF: " + item.getCpf() + " ]");
+                    }
+                    break;
+                case "Pedagogo":
+                    for (Pedagogo item : Pedagogo) {
+                        System.out.println("[ Código: " + item.getCodigo() + " | Nome: " + item.getNome() +
+                                " | CPF: " + item.getCpf() + " ]");
+                    }
+                    break;
+            }
+        }
+    }
+    public void listaRelatorioAtendimentoAluno(){
+        for (Aluno item: Aluno){
+            if (item.getAtendAluno() > 0){
+                System.out.println("[ Código: " + item.getCodigo() + " | Nome: " + item.getNome() +
+                        " | Total de Atendimentos: " + item.getAtendAluno() + " ]");
+            }
+        }
+    }
+    public void listaRelatorioAtendimentoPedagogo(){
+        for (Pedagogo item: Pedagogo){
+            if (item.getAtendPedagogo() > 0){
+                System.out.println("[ Código: " + item.getCodigo() + " | Nome: " + item.getNome() +
+                        " | Total de Atendimentos: " + item.getAtendPedagogo() + " ]");
             }
         }
     }

@@ -50,11 +50,57 @@ public class Main {
                     System.out.print("Informe o código do pedagogo: ");
                     int codigoPedagogoAtend = tecladoAtend.nextInt();
                     lista.realizarAtendimento(codigoAlunoAtend, codigoPedagogoAtend);
-                    System.out.println(Arrays.toString(lista.Aluno.toArray()));
-                    System.out.println(Arrays.toString(lista.Pedagogo.toArray()));
+                    System.out.println("Atendimento realizado com sucesso!");
                     break;
                 case 6:
-                    System.out.println(menu.menuRelatorio());
+                    String menu1 = menu.menuRelatorio();
+                    System.out.println(menu1);
+                    switch (menu1){
+                        case "1.1":
+                            lista.listarRelatorioPessoas("Aluno");
+                            break;
+                        case "1.2":
+                            lista.listarRelatorioPessoas("Professor");
+                            break;
+                        case "1.3":
+                            lista.listarRelatorioPessoas("Pedagogo");
+                            break;
+                        case "1.4":
+                            lista.listarRelatorioPessoas("Todos");
+                            break;
+                        case "2.1":
+                            lista.listaRelatorioAlunos("Ativo");
+                            break;
+                        case "2.2":
+                            lista.listaRelatorioAlunos("Irregular");
+                            break;
+                        case "2.3":
+                            lista.listaRelatorioAlunos("Atendimento pedagogico");
+                            break;
+                        case "2.4":
+                            lista.listaRelatorioAlunos("Inativo");
+                            break;
+                        case "2.5":
+                            lista.listaRelatorioAlunos("Todos");
+                            break;
+                        case "3.1":
+                            lista.listaRelatorioProfessores("Front-end");
+                            break;
+                        case "3.2":
+                            lista.listaRelatorioProfessores("Back-end");
+                            break;
+                        case "3.3":
+                            lista.listaRelatorioProfessores("Full Stack");
+                            break;
+                        case "3.4":
+                            lista.listaRelatorioProfessores("Todos");
+                            break;
+                        case "4":
+                            lista.listaRelatorioAtendimentoAluno();
+                            break;
+                        case "5":
+                            lista.listaRelatorioAtendimentoPedagogo();
+                    }
                     break;
                 case 7:
                     sair = 1;

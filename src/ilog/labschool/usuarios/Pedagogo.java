@@ -36,4 +36,12 @@ public class Pedagogo extends Pessoa{
                 ", CPF: " + getCpf() +
                 ']';
     }
+
+    public String listaAtendimentos(){
+        return "[" +
+                "Código: " + this.getCodigo() +
+                ", Nome: '" + this.getNome() + '\'' +
+                ", Nro de Atendimentos: " + this.getAtendPedagogo() +
+                ']';
+    }
 }

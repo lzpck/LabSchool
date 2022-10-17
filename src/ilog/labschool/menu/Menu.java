@@ -1,8 +1,10 @@
 package ilog.labschool.menu;
 
+import ilog.labschool.usuarios.Aluno;
 import ilog.labschool.usuarios.Lista;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu extends Lista {
@@ -58,11 +60,12 @@ public class Menu extends Lista {
                 break;
             case 3:
                 escolha2 = this.relatorioProfessores();
+                break;
             case 4:
-                escolha2 = this.atendimentoAluno();
+                escolha2 = "4";
                 break;
             case 5:
-                escolha2 = this.atendimentoPedagogo();
+                escolha2 = "5";
                 break;
             case 6:
                 this.menuPrincipal();
@@ -86,20 +89,16 @@ public class Menu extends Lista {
         String escolha2 = "";
         switch (escolha){
             case 1:
-                System.out.println("aluno");
-                escolha2 =  "1.1";
+                escolha2 = "1.1";
                 break;
             case 2:
-                System.out.println("prof");
-                escolha2 =  "1.2";
+                escolha2 = "1.2";
                 break;
             case 3:
-                System.out.println("ped");
-                escolha2 =  "1.3";
+                escolha2 = "1.3";
                 break;
             case 4:
-                System.out.println("todos");
-                escolha2 =  "1.4";
+                escolha2 = "1.4";
                 break;
             case 5:
                 this.menuRelatorio();
@@ -124,24 +123,29 @@ public class Menu extends Lista {
         String escolha2 = "";
         switch (escolha){
             case 1:
-                System.out.println("ativo");
+                System.out.println("Alunos ativos: ");
                 escolha2 = "2.1";
+                relatorioAluno();
                 break;
             case 2:
-                System.out.println("irreg");
+                System.out.println("Alunos irregulares: ");
                 escolha2 = "2.2";
+                relatorioAluno();
                 break;
             case 3:
-                System.out.println("atend");
+                System.out.println("Alunos em atendimento pedagógico: ");
                 escolha2 = "2.3";
+                relatorioAluno();
                 break;
             case 4:
-                System.out.println("inat");
+                System.out.println("Alunos inativos: ");
                 escolha2 = "2.4";
+                relatorioAluno();
                 break;
             case 5:
-                System.out.println("todos");
+                System.out.println("Todos os alunos: ");
                 escolha2 = "2.5";
+                relatorioAluno();
                 break;
             case 6:
                 this.menuRelatorio();
@@ -156,7 +160,7 @@ public class Menu extends Lista {
         System.out.println("1 - Listar Front-end");
         System.out.println("2 - Listar Back-end");
         System.out.println("3 - Listar Full Stack");
-        System.out.println("4 - Listar todos");
+        System.out.println("4 - Listar Todos");
         System.out.println("5 - Voltar");
         System.out.println();
         System.out.print("Escolha qual relatório: ");
@@ -164,19 +168,19 @@ public class Menu extends Lista {
         String escolha2 = "";
         switch (escolha){
             case 1:
-                System.out.println("front");
+                System.out.println("Com experiência em Front-end: ");
                 escolha2 =  "3.1";
                 break;
             case 2:
-                System.out.println("back");
+                System.out.println("Com experiência em Back-end: ");
                 escolha2 =  "3.2";
                 break;
             case 3:
-                System.out.println("full");
+                System.out.println("Com experiência em Full Stack: ");
                 escolha2 =  "3.3";
                 break;
             case 4:
-                System.out.println("todos");
+                System.out.println("Listando todos: ");
                 escolha2 =  "3.4";
                 break;
             case 5:
@@ -184,14 +188,6 @@ public class Menu extends Lista {
                 break;
         }
         return escolha2;
-    }
-
-    private String atendimentoAluno(){
-        return "4";
-    }
-
-    private String atendimentoPedagogo(){
-        return "5";
     }
 }
 
